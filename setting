@@ -1,0 +1,131 @@
+2020/10/09 ssh
+user@user$ ssh-keygen -t rsa
+user@user$ scp C:\\Users\\user\\.ssh\\id_rsa.pub *****@*****:~/
+>> C:\\Users\\user\\.ssh\\config
+Host *****
+HostName **.***.***.***
+User *****
+Port 22
+IdentityFile C:\\Users\\user\\.ssh\\id_rsa
+user@user$ ssh *****
+*****@*****$ sudo apt-get install openssh-server
+*****@*****$ mkdir .ssh
+*****@*****$ chmod 700 .ssh
+*****@*****$ mv ~/id_rsa.pub ~/.ssh/authorized_keys
+*****@*****$ chmod 600 .ssh/authorized_keys
+or
+*****@*****$ cat id_rsa.pub >> .ssh/authorized_keys
+
+
+2020/10/06 start
+>>~/.bashrc
+# start alias
+alias start="bash /home/*****/local/setting/alias/start.sh"
+$ mkdir -p ~/local/setting/alias
+$ mkdir ~/local/log
+>> ~/local/setting/alias/start.sh
+#!/bin/sh
+# for make log file
+today=$(date "+%Y%m%d-%H%M")
+folder=$(basename `pwd`)
+echo "Hello! Welcome to ***** PC (-v-)/"
+echo "what is your name?"
+read name
+logfilename=${today}-${name}-${folder}
+script /home/*****/local/log/${logfilename}.txt
+
+
+2020/10/09 linuxbrew
+$ sudo apt-get install build-essential curl file git
+$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+$ test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
+$ test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+$ echo "eval $($(brew --prefix)/bin/brew shellenv)" >>~/.profile
+$ brew install sl
+
+
+2020/10/12 trash-cli
+$ brew install trash-cli
+>> ~/.bashrc
+# trash-cli
+alias rm="trash-put"
+
+
+2020/10/12 Miniconda3
+$ mkdir miniconda
+$ cd miniconda
+$ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+$ bash Miniconda3-latest-Linux-x86_64.sh
+> PATH -> /home/*****/local/Miniconda3
+reboot terminal
+$ conda config --add channels defaults
+$ conda config --add channels conda-forge
+$ conda config --add channels r
+$ conda config --add channels bioconda
+
+2020/10/12 sratoolkit
+$ conda install -c bioconda sra-tools
+
+
+2020/10/12 Trim galore!
+$ conda install -c bioconda trim-galore
+
+
+2020/10/12 kallisto
+$ conda install -c bioconda kallisto
+
+
+2020/10/12 samtools
+$ conda install -c bioconda samtools
+
+
+2020/10/12 lftp
+$ brew install lftp
+
+
+2020/10/12 star
+$ conda install -c bioconda star
+
+
+2020/10/12 rsem
+$ conda install -c bioconda rsem
+
+
+2020/10/12 fastp
+$ conda install -c bioconda fastp
+
+
+2020/10/12 bowtie2
+$ conda install -c bioconda bowtie2
+
+
+2020/10/12 macs2
+$ conda install -c bioconda macs2
+
+
+2020/10/12 homer
+$ conda install -c bioconda homer
+
+
+2020/10/12 deeptools
+$ conda install -c bioconda deeptools
+
+
+2020/10/12 bedtools
+$ conda install -c bioconda bedtools
+
+
+2020/10/12 isoseq3
+$ conda install -c bioconda isoseq3
+
+
+2020/10/12 hisat2
+$ conda install -c bioconda hisat2
+
+
+2020/10/12 subread(featureCounts)
+$ conda install -c bioconda subread
+
+
+2020/10/12 stringTie
+$ conda install -c bioconda stringtie
