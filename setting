@@ -28,7 +28,7 @@ $ mkdir ~/local/log
 # for make log file
 today=$(date "+%Y%m%d-%H%M")
 folder=$(basename `pwd`)
-echo "Hello! Welcome to ***** PC (-v-)/"
+echo "Hello! Welcome to ***** PC (¥v¥)/"
 echo "what is your name?"
 read name
 logfilename=${today}-${name}-${folder}
